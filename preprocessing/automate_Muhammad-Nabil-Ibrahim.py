@@ -46,7 +46,7 @@ def run():
     df_clean = preprocess_data(df)
     save_data(
         df_clean,
-        "preprocessing/data_clean.csv"
+        "data_clean.csv"
     )
 
 if __name__ == "__main__":

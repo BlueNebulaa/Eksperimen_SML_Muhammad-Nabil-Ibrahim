@@ -1,10 +1,6 @@
 name: Preprocessing Dataset
 
-on:
-  push:
-    paths:
-      - "preprocessing/**"
-      - "heart-dissease-dataset/**"
+on: [push]
 
 jobs:
   preprocess:

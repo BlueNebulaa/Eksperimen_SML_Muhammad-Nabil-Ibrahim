@@ -42,11 +42,11 @@ def save_data(df, output_path):
     df.to_csv(output_path, index=False)
 
 def run():
-    df = load_data("../heart-dissease-dataset/Heart_Disease_Prediction.csv")
+    df = load_data("./heart-dissease-dataset/Heart_Disease_Prediction.csv")
     df_clean = preprocess_data(df)
     save_data(
         df_clean,
-        "Eksperimen_SML_Muhammad-nabil-ibrahim/preprocessing/data_clean.csv"
+        "preprocessing/data_clean.csv"
     )
 
 if __name__ == "__main__":

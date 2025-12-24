@@ -1,0 +1,37 @@
+name: Preprocessing Dataset
+
+on:
+  push:
+    paths:
+      - "preprocessing/**"
+      - "heart-dissease-dataset/**"
+
+jobs:
+  preprocess:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.3"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas scikit-learn
+
+      - name: Run preprocessing
+        run: |
+          cd preprocessing
+          python automate_Muhammad-Nabil-Ibrahim.py
+
+      - name: Commit processed dataset
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add preprocessing/namadataset_preprocessing/*
+          git commit -m "Update processed dataset" || echo "No changes"
+          git push
